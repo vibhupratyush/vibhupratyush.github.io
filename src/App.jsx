@@ -7,8 +7,8 @@ const PROFILE = {
   affiliation: "The University of British Columbia",
   email: "vibhu1@student.ubc.ca",
   linkedin: "https://www.linkedin.com/in/vibhu-pratyush-300abb117/",
-  photo: "public/profile.jpg",
-  cv: "public/cv.pdf",
+  photo: "/profile.jpg",
+  cv: "/cv.pdf",
 };
 
 const JMP = {
