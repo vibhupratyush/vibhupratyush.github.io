@@ -268,3 +268,9 @@ footer {
     color:#444;
   }
 }
+
+.home-wrap { display: flex; gap: 24px; align-items: flex-start; flex-wrap: nowrap; }
+@media (max-width: 720px) {
+  .home-wrap { flex-direction: column; }
+  .home-photo { width: 100% !important; height: auto !important; max-width: 420px; }
+}
