@@ -145,20 +145,24 @@ export default function App() {
 function Home() {
   return (
     <article>
-      <div style={{ display: "flex", gap: 24, alignItems: "flex-start", flexWrap: "wrap" }}>
+      <div className="home-wrap">
         <img
           src={PROFILE.photo}
           alt={`${PROFILE.name} headshot`}
+          className="home-photo"
           style={{
-            width: 160,
-            height: 160,
-            borderRadius: "50%",
+            width: 300,            // make bigger
+            height: 300,
             objectFit: "cover",
+            borderRadius: 8,       // rectangular with soft corners (not a circle)
             border: "1px solid #ddd",
           }}
         />
+
         <div>
-          <h1 style={{ marginTop: 0, marginBottom: 8 }}>{PROFILE.name}</h1>
+          <h1 style={{ marginTop: 0, marginBottom: 8, fontSize: "2.25rem", lineHeight: 1.2 }}>
+            {PROFILE.name}
+          </h1>
           <p style={{ margin: 0 }}>{PROFILE.title}</p>
           <p style={{ marginTop: 4 }}>{PROFILE.affiliation}</p>
 
@@ -170,12 +174,13 @@ function Home() {
             </p>
             <p>
               My research explores how inequality affects social mobility, human
-              capital attainment, and the political economy of development.
+              capital attainment, and the political economy of development, with a
+              particular emphasis on developing-country contexts.
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
 
-          <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
+          <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
             <a href={`mailto:${PROFILE.email}`} title="Email"><span aria-hidden="true">✉️</span> Email</a>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn"><span aria-hidden="true">in</span> LinkedIn</a>
             <a href="#/research" title="Research">Research</a>
