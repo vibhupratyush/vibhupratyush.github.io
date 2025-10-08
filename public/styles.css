@@ -274,3 +274,45 @@ footer {
   .home-wrap { flex-direction: column; }
   .home-photo { width: 100% !important; height: auto !important; max-width: 420px; }
 }
+
+
+/* --- Home layout --- */
+.home-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* Fixed column for the photo so text has plenty of room */
+.home-photo {
+  flex: 0 0 260px;          /* reserve 260px on the left */
+  width: 260px;
+  height: 320px;            /* rectangular portrait */
+  object-fit: cover;
+  border-radius: 8px;       /* soft corners */
+  border: 1px solid #ddd;
+}
+
+/* Let text fill the rest of the wrapper width */
+.home-text {
+  flex: 1 1 auto;
+  min-width: 0;             /* prevents cramped wrapping */
+}
+
+.home-text h1 {
+  font-size: 2.25rem;       /* larger name */
+  line-height: 1.2;
+}
+
+.home-intro {
+  margin-top: 16px;
+  line-height: 1.55;
+  max-width: 72ch;          /* readable line length */
+}
+
+/* Stack on phones */
+@media (max-width: 720px) {
+  .home-row { flex-direction: column; }
+  .home-photo { width: 100%; height: auto; max-width: 420px; }
+}
+
