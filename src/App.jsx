@@ -98,7 +98,6 @@ const TEACHING = [
 
 
 export default function App() {
-  console.log('App mounted');
   const getRoute = () => {
     const h = (typeof window !== "undefined" && window.location.hash) || "#/";
     if (h.startsWith("#/research")) return "research";
@@ -145,60 +144,34 @@ export default function App() {
 function Home() {
   return (
     <article>
-      <div
-        // Force horizontal layout next to the text
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          gap: "24px",
-          flexWrap: "nowrap",
-        }}
-      >
+      <div className="home-row">
         <img
           src={PROFILE.photo}
           alt={`${PROFILE.name} headshot`}
-          style={{
-            width: 340,            // larger
-            height: 340,
-            objectFit: "cover",
-            borderRadius: 8,       // rectangular with soft corners
-            border: "1px solid #ddd",
-            // override theme defaults that can push it above
-            float: "none",
-            margin: 0,
-            display: "block",
-            flexShrink: 0,
-          }}
+          className="home-photo"
         />
 
-        <div>
-          <h1 style={{ marginTop: 0, marginBottom: 8, fontSize: "2.25rem", lineHeight: 1.2 }}>
-            {PROFILE.name}
-          </h1>
+        <div className="home-text">
+          <h1 style={{ marginTop: 0, marginBottom: 8 }}>{PROFILE.name}</h1>
           <p style={{ margin: 0 }}>{PROFILE.title}</p>
           <p style={{ marginTop: 4 }}>{PROFILE.affiliation}</p>
 
-          <div style={{ marginTop: 16, maxWidth: "70ch", lineHeight: 1.55 }}>
+          <div className="home-intro">
             <p>
               Welcome! I am an applied microeconomist with research interests in
               development economics, public economics, inequality, and political
               economy.
             </p>
             <p>
-              My research explores how inequality affects social mobility, human
+              My research explores how inequality affects intergenerational mobility, human
               capital attainment, and the political economy of development.
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
 
           <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
-            <a href={`mailto:${PROFILE.email}`} title="Email">
-              <span aria-hidden="true">✉️</span> Email
-            </a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
-              <span aria-hidden="true">in</span> LinkedIn
-            </a>
+            <a href={`mailto:${PROFILE.email}`} title="Email"><span aria-hidden="true">✉️</span> Email</a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn"><span aria-hidden="true">in</span> LinkedIn</a>
             <a href="#/research" title="Research">Research</a>
             <a href="#/teaching" title="Teaching">Teaching</a>
             <a href={PROFILE.cv} target="_blank" rel="noreferrer" title="CV">CV (PDF)</a>
@@ -208,7 +181,6 @@ function Home() {
     </article>
   );
 }
-
 
 function Research() {
   const [showJmp, setShowJmp] = useState(true);
