@@ -168,8 +168,7 @@ function Home() {
             </p>
             <p>
               My research explores how inequality affects social mobility, human
-              capital attainment, and the political economy of development, with a
-              particular emphasis on developing-country contexts.
+              capital attainment, and the political economy of development.
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
