@@ -145,17 +145,30 @@ export default function App() {
 function Home() {
   return (
     <article>
-      <div className="home-wrap">
+      <div
+        // Force horizontal layout next to the text
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-start",
+          gap: "24px",
+          flexWrap: "nowrap",
+        }}
+      >
         <img
           src={PROFILE.photo}
           alt={`${PROFILE.name} headshot`}
-          className="home-photo"
           style={{
-            width: 300,            // make bigger
-            height: 300,
+            width: 340,            // larger
+            height: 340,
             objectFit: "cover",
-            borderRadius: 8,       // rectangular with soft corners (not a circle)
+            borderRadius: 8,       // rectangular with soft corners
             border: "1px solid #ddd",
+            // override theme defaults that can push it above
+            float: "none",
+            margin: 0,
+            display: "block",
+            flexShrink: 0,
           }}
         />
 
@@ -174,15 +187,18 @@ function Home() {
             </p>
             <p>
               My research explores how inequality affects social mobility, human
-              capital attainment, and the political economy of development, with a
-              particular emphasis on developing-country contexts.
+              capital attainment, and the political economy of development.
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
 
           <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
-            <a href={`mailto:${PROFILE.email}`} title="Email"><span aria-hidden="true">✉️</span> Email</a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn"><span aria-hidden="true">in</span> LinkedIn</a>
+            <a href={`mailto:${PROFILE.email}`} title="Email">
+              <span aria-hidden="true">✉️</span> Email
+            </a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
+              <span aria-hidden="true">in</span> LinkedIn
+            </a>
             <a href="#/research" title="Research">Research</a>
             <a href="#/teaching" title="Teaching">Teaching</a>
             <a href={PROFILE.cv} target="_blank" rel="noreferrer" title="CV">CV (PDF)</a>
@@ -192,6 +208,7 @@ function Home() {
     </article>
   );
 }
+
 
 function Research() {
   const [showJmp, setShowJmp] = useState(true);
