@@ -98,6 +98,7 @@ const TEACHING = [
 
 
 export default function App() {
+  console.log('App mounted');
   const getRoute = () => {
     const h = (typeof window !== "undefined" && window.location.hash) || "#/";
     if (h.startsWith("#/research")) return "research";
