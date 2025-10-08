@@ -60,28 +60,42 @@ const WIP = [
 
 /** ---------------- Teaching data (edit this) ---------------- */
 const TEACHING = [
-  // Example items—edit/expand as you like
+
   {
     role: "Teaching Assistant",
-    course: "ECON 101 — Principles of Microeconomics",
+    course: "ECON 304 and ECON 306 — Microeconomics, Honours",
     institution: "UBC",
-    term: "2023–2024",
-    notes:
-      "Led tutorials on consumer/producer theory and introductory causal inference; ran R lab sessions and problem classes.",
-    syllabus: "", // e.g., "/teaching/econ101_syllabus.pdf"
-    site: "", // external course page, if any
+    term: "2022, 2023, 2024",
   },
+  {
+    role: "Teaching Assistant",
+    course: "ECON 305 and ECON 307 — Microeconomics, Honours",
+    institution: "UBC",
+    term: "2022, 2023, 2024",
+  },
+
+  {
+    role: "Teaching Assistant",
+    course: "ECON 305 — Microeconomics, Honours",
+    institution: "UBC",
+    term: "2022, 2023, 2024",
+  },
+  
   {
     role: "Teaching Assistant",
     course: "ECON 326 — Econometrics",
     institution: "UBC",
-    term: "2024–2025",
-    notes:
-      "TA for undergraduate econometrics; recitations on regression/IV and coding walk-throughs in R/Stata.",
-    syllabus: "",
-    site: "",
+    term: "2022,2025",
   },
-];
+
+  {
+    role: "Teaching Assistant",
+    course: "ECON 101 — Principles of Microeconomics",
+    institution: "UBC",
+    term: "2020, 2021, 2023, 2024, 2025",
+  },
+  ];
+
 
 export default function App() {
   const getRoute = () => {
