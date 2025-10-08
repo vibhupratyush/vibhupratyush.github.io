@@ -24,7 +24,7 @@ const JMP = {
   title: "Land for Opportunity? Deprivation and Intergenerational Mobility in Rural India",
   coauthors: "with Pulak Ghosh",
   abstract:
-    "We examine how inequality in land-wealth, particularly landlessness, inhibits educational mobility in rural India. Using full-count rural census microdata, we document a robust step-function pattern across the land distribution: mobility rises sharply from the landless to marginal landholders and then plateaus. Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link between higher landlessness and lower educational mobility. To unpack mechanisms, we develop and empirically validate a model  that endogenously generates the step, combining subsistence constraints, dynamic complementarity in educational investments, the prevalence of child labour and the rising opportunity cost of schooling over children’s life cycle, and concavity in returns to land. In addition to predicting the core stylized facts in the data, the model rationalizes heterogeneity in the mobility land relationship across states, and makes a range of sharp and robust predictions which we validate. Our study is novel in the developing world context for two reasons; (i) it is the first study to examine and precisely identify the causal link between landlessness and mobility, (ii) it is the first study to theoretically pin down and empirically validate the mechanism behind this relationship",
+    "We examine how inequality in land-wealth, particularly landlessness, inhibits educational mobility in rural India. Using full-count rural census microdata, we document a robust step-function pattern across the land distribution: mobility rises sharply from the landless to marginal landholders and then plateaus. Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link between higher landlessness and lower educational mobility. To unpack mechanisms, we develop and empirically validate a model  that endogenously generates the step, combining subsistence constraints, dynamic complementarity in educational investments, the prevalence of child labour and the rising opportunity cost of schooling over children’s life cycle, and concavity in returns to land. In addition to predicting the core stylized facts in the data, the model rationalizes heterogeneity in the mobility land relationship across states, and makes a range of sharp and robust predictions which we validate. Our study is novel in the developing world context for two reasons; (i) it is the first study to examine and precisely identify the causal link between landlessness and mobility, (ii) it is the first study to theoretically pin down and empirically validate the mechanism behind this relationship.",
   pdf: "", // set to "/papers/JMP_draft.pdf" when ready
 };
 
@@ -127,8 +127,7 @@ function Home() {
 
   <p>
     My research explores how inequality affects social mobility, human capital
-    attainment, and the political economy of development, with a particular
-    emphasis on devloping country contexts.
+    attainment, and the political economy of development.
   </p>
 
   <p className="font-semibold">I am on the 2025/26 job market.</p>
