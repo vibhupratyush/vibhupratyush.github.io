@@ -129,12 +129,13 @@ export default function App() {
       </header>
 
       <section id="content">
-        {route === "research" ? <Research /> : route === "teaching" ? <Teaching /> : <Home />}
+        <div style={{ color: '#888', fontSize: '12px' }}>boot ok</div>
+        {route === 'research' ? <Research /> : route === 'teaching' ? <Teaching /> : <Home />}
       </section>
 
-      <footer>
-        <p>© {new Date().getFullYear()} {PROFILE.name}</p>
-      </footer>
+<footer>
+  <p>© {new Date().getFullYear()} {PROFILE.name}</p>
+</footer>
     </div>
   );
 }
