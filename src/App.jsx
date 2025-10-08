@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-/**
- * Minimal-style academic site with Home, Research, and Teaching
- * - Uses hash routes: #/ , #/research , #/teaching
- * - Relies on theme files in /public: style.css, pygment_trac.css, scale.fix.js
- * - Assets in /public: profile.jpg, cv.pdf, (optional) papers/*
- */
-
+/** ---------- SITE DATA (edit) ---------- */
 const PROFILE = {
   name: "Vibhu Pratyush",
   title: "Ph.D. Candidate, Economics",
@@ -48,7 +42,7 @@ const WIP = [
   {
     title: "The Land Mobility Atlas",
     abstract:
-      "This project maps the link between land distribution and intergenerational educational mobility across countries. Using data from 50 developing countries, we harmonize household surveys and census microdata to build comparable estimates of how land ownership relates to mobility. The Atlas shows where mobility rises once families cross minimal land thresholds—and where high land concentration holds mobility down. By visualizing these patterns and their correlates, we highlight practical levers to increase mobility.",
+      "This project maps the link between land distribution and intergenerational educational mobility across countries. Using data from 50 developing countries, we harmonize household surveys and census microdata to build comparable estimates of how land ownership relates to mobility. The Atlas shows where mobility rises once families cross minimal land thresholds—and where high land concentration holds mobility down.",
   },
   {
     title: "Credit Expansion and Firm Dynamics",
@@ -58,46 +52,11 @@ const WIP = [
   },
 ];
 
-/** ---------------- Teaching data (edit this) ---------------- */
-const TEACHING = [
-
-  {
-    role: "Teaching Assistant",
-    course: "ECON 304 and ECON 306 — Microeconomics, Honours",
-    institution: "UBC",
-    term: "2022, 2023, 2024",
-  },
-  {
-    role: "Teaching Assistant",
-    course: "ECON 305 and ECON 307 — Microeconomics, Honours",
-    institution: "UBC",
-    term: "2022, 2023, 2024",
-  },
-
-  {
-    role: "Teaching Assistant",
-    course: "ECON 305 — Microeconomics, Honours",
-    institution: "UBC",
-    term: "2022, 2023, 2024",
-  },
-  
-  {
-    role: "Teaching Assistant",
-    course: "ECON 326 — Econometrics",
-    institution: "UBC",
-    term: "2022,2025",
-  },
-
-  {
-    role: "Teaching Assistant",
-    course: "ECON 101 — Principles of Microeconomics",
-    institution: "UBC",
-    term: "2020, 2021, 2023, 2024, 2025",
-  },
-  ];
-
-
+/** ---------- APP ---------- */
 export default function App() {
+  // tiny debug so we know it mounted on the live page
+  console.log("App mounted");
+
   const getRoute = () => {
     const h = (typeof window !== "undefined" && window.location.hash) || "#/";
     if (h.startsWith("#/research")) return "research";
@@ -106,6 +65,7 @@ export default function App() {
   };
 
   const [route, setRoute] = useState(getRoute());
+
   useEffect(() => {
     if (!window.location.hash) window.location.hash = "#/";
     const onHash = () => setRoute(getRoute());
@@ -117,7 +77,7 @@ export default function App() {
     <div className="wrapper">
       <header>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16 }}>
-          <h1 style={{ margin: 0 }}>{/* (Minimal-style clean header) */}</h1>
+          <h1 style={{ margin: 0 }}>{/* keep header minimal */}</h1>
           <p className="view" style={{ margin: 0 }}>
             <a href="#/">Home</a>&nbsp;&nbsp;·&nbsp;&nbsp;
             <a href="#/research">Research</a>&nbsp;&nbsp;·&nbsp;&nbsp;
@@ -128,50 +88,75 @@ export default function App() {
       </header>
 
       <section id="content">
-        <div style={{ color: '#888', fontSize: '12px' }}>boot ok</div>
-        {route === 'research' ? <Research /> : route === 'teaching' ? <Teaching /> : <Home />}
+        {route === "research" ? <Research /> : route === "teaching" ? <Teaching /> : <Home />}
       </section>
 
-<footer>
-  <p>© {new Date().getFullYear()} {PROFILE.name}</p>
-</footer>
+      <footer>
+        <p>© {new Date().getFullYear()} {PROFILE.name}</p>
+      </footer>
     </div>
   );
 }
 
-/* -------------------- Pages -------------------- */
+/** ---------- PAGES ---------- */
 
 function Home() {
+  // Inline styles ensure layout even if theme CSS overrides things
   return (
     <article>
-      <div className="home-row">
+      <div
+        className="home-row"
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 24,
+          flexWrap: "nowrap",
+        }}
+      >
         <img
           src={PROFILE.photo}
           alt={`${PROFILE.name} headshot`}
           className="home-photo"
+          style={{
+            flex: "0 0 280px",
+            width: 280,
+            height: 340,
+            objectFit: "cover",
+            borderRadius: 8,
+            border: "1px solid #ddd",
+            margin: 0,
+            display: "block",
+          }}
         />
 
-        <div className="home-text">
-          <h1 style={{ marginTop: 0, marginBottom: 8 }}>{PROFILE.name}</h1>
+        <div className="home-text" style={{ flex: "1 1 auto", minWidth: 0 }}>
+          <h1 style={{ marginTop: 0, marginBottom: 8, fontSize: "2.25rem", lineHeight: 1.2 }}>
+            {PROFILE.name}
+          </h1>
           <p style={{ margin: 0 }}>{PROFILE.title}</p>
           <p style={{ marginTop: 4 }}>{PROFILE.affiliation}</p>
 
-          <div className="home-intro">
+          <div className="home-intro" style={{ marginTop: 16, lineHeight: 1.55, maxWidth: "72ch" }}>
             <p>
               Welcome! I am an applied microeconomist with research interests in
               development economics, public economics, inequality, and political
               economy.
             </p>
             <p>
-              My research explores how inequality affects intergenerational mobility, human
-              capital attainment, and the political economy of development.
+              My research explores how inequality affects social mobility, human
+              capital attainment, and the political economy of development, with a
+              particular emphasis on developing-country contexts.
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
 
           <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
-            <a href={`mailto:${PROFILE.email}`} title="Email"><span aria-hidden="true">✉️</span> Email</a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn"><span aria-hidden="true">in</span> LinkedIn</a>
+            <a href={`mailto:${PROFILE.email}`} title="Email">
+              <span aria-hidden="true">✉️</span> Email
+            </a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
+              <span aria-hidden="true">in</span> LinkedIn
+            </a>
             <a href="#/research" title="Research">Research</a>
             <a href="#/teaching" title="Teaching">Teaching</a>
             <a href={PROFILE.cv} target="_blank" rel="noreferrer" title="CV">CV (PDF)</a>
@@ -184,10 +169,8 @@ function Home() {
 
 function Research() {
   const [showJmp, setShowJmp] = useState(true);
-
   return (
     <article>
-      {/* JMP */}
       <h2>Job Market Paper</h2>
       <div>
         <div style={{ fontWeight: 600 }}>{JMP.title}</div>
@@ -199,30 +182,38 @@ function Research() {
             <span style={{ color: "#777" }}>[Draft coming soon]</span>
           )}
           {" "}
-          <a href="#/research" onClick={(e) => { e.preventDefault(); setShowJmp((s) => !s); }}>
+          <a
+            href="#/research"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowJmp((s) => !s);
+            }}
+          >
             [Show/Hide Abstract]
           </a>
         </p>
         {showJmp && <p style={{ maxWidth: "80ch", lineHeight: 1.55 }}>{JMP.abstract}</p>}
       </div>
 
-      {/* Working Papers */}
       <h2>Working Papers</h2>
       {WORKING_PAPERS.length === 0 ? (
         <p style={{ color: "#666" }}>None yet.</p>
       ) : (
         <div style={{ display: "grid", gap: 16 }}>
-          {WORKING_PAPERS.map((p, i) => <PaperItem key={i} {...p} />)}
+          {WORKING_PAPERS.map((p, i) => (
+            <PaperItem key={i} {...p} />
+          ))}
         </div>
       )}
 
-      {/* Works in Progress */}
       <h2>Works in Progress</h2>
       {WIP.length === 0 ? (
         <p style={{ color: "#666" }}>None yet.</p>
       ) : (
         <div style={{ display: "grid", gap: 16 }}>
-          {WIP.map((p, i) => <PaperItem key={i} {...p} />)}
+          {WIP.map((p, i) => (
+            <PaperItem key={i} {...p} />
+          ))}
         </div>
       )}
     </article>
@@ -230,10 +221,32 @@ function Research() {
 }
 
 function Teaching() {
+  const TEACHING = [
+    {
+      role: "Teaching Assistant",
+      course: "ECON 101 — Principles of Microeconomics",
+      institution: "UBC",
+      term: "2023–2024",
+      notes:
+        "Led tutorials on consumer/producer theory and introductory causal inference; ran R lab sessions and problem classes.",
+      syllabus: "",
+      site: "",
+    },
+    {
+      role: "Teaching Assistant",
+      course: "ECON 326 — Econometrics",
+      institution: "UBC",
+      term: "2024–2025",
+      notes:
+        "TA for undergraduate econometrics; recitations on regression/IV and coding walk-throughs in R/Stata.",
+      syllabus: "",
+      site: "",
+    },
+  ];
+
   return (
     <article>
       <h2>Teaching</h2>
-
       {TEACHING.length === 0 ? (
         <p style={{ color: "#666" }}>No teaching listed yet.</p>
       ) : (
@@ -252,16 +265,8 @@ function Teaching() {
               )}
               {(t.syllabus || t.site) && (
                 <p style={{ marginTop: 6, fontSize: "0.95em" }}>
-                  {t.syllabus && (
-                    <>
-                      <a href={t.syllabus} target="_blank" rel="noreferrer">[Syllabus]</a>{" "}
-                    </>
-                  )}
-                  {t.site && (
-                    <>
-                      <a href={t.site} target="_blank" rel="noreferrer">[Course page]</a>
-                    </>
-                  )}
+                  {t.syllabus && <a href={t.syllabus} target="_blank" rel="noreferrer">[Syllabus]</a>}{" "}
+                  {t.site && <a href={t.site} target="_blank" rel="noreferrer">[Course page]</a>}
                 </p>
               )}
             </div>
@@ -299,3 +304,4 @@ function PaperItem({ title, coauthors, abstract, pdf, slides }) {
     </div>
   );
 }
+
