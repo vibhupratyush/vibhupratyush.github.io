@@ -7,8 +7,8 @@ const PROFILE = {
   affiliation: "The University of British Columbia",
   email: "vibhu1@student.ubc.ca",
   linkedin: "https://www.linkedin.com/in/vibhu-pratyush-300abb117/",
-  photo: "/profile.jpg",
-  cv: "/cv.pdf",
+  photo: "public/profile.jpg",
+  cv: "public/cv.pdf",
 };
 
 const JMP = {
@@ -145,7 +145,7 @@ function Home() {
             <p>
               My research explores how inequality affects social mobility, human
               capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
-              of interegenrational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
+              of interegenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
