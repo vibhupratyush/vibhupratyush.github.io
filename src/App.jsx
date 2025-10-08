@@ -15,7 +15,7 @@ const JMP = {
   title: "Land for Opportunity? Deprivation and Intergenerational Mobility in Rural India",
   coauthors: "with Pulak Ghosh",
   abstract:
-    "We examine how inequality in land-wealth, particularly landlessness, inhibits educational mobility in rural India. Using full-count rural census microdata, we document a robust step-function pattern across the land distribution: mobility rises sharply from the landless to marginal landholders and then plateaus. Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link between higher landlessness and lower educational mobility. To unpack mechanisms, we develop and empirically validate a model that endogenously generates the step, combining subsistence constraints, dynamic complementarity in educational investments, the prevalence of child labour and the rising opportunity cost of schooling over the life cycle, and concavity in returns to land. The model rationalizes cross-state heterogeneity and generates sharp predictions we validate.",
+    "We study how inequality in land wealth—especially landlessness—constrains educational mobility in rural India. Using full-count rural census microdata, we document a striking step pattern across the land distribution: mobility jumps sharply from the landless to marginal landholders and then levels off. Leveraging historical variation in British-era land-tenure regimes, we show that higher landlessness causally reduces educational mobility. To unpack mechanisms, we develop and empirically validate a model that endogenously produces this step via subsistence constraints, dynamic complementarity in educational investments, the prevalence of child labour and the rising opportunity cost of schooling over the child’s life cycle, and concavity in returns to land. The model predicts the core facts in the data, explains cross-state heterogeneity in the mobility–land relationship, and yields a set of sharp predictions that we confirm. To our knowledge, this is the first study in a developing-country context to (i) precisely identify the causal link between landlessness and mobility and (ii) theoretically pin down—and empirically validate—the mechanism behind it.",
   pdf: "", // set to "/papers/JMP_draft.pdf" when ready
 };
 
@@ -24,31 +24,31 @@ const WORKING_PAPERS = [
     title: "Elite Control and the Political Economy of Development: Evidence from India",
     coauthors: "with Aditi Singh and Pulak Ghosh",
     abstract:
-      "We study Indian village governments (panchayats) in Uttar Pradesh and proxy elite control using the land-wealth share held by top landowners. Villages with higher elite land shares spend less per capita on development and shift away from broad public goods. Elite control weakens the spending gains from reserved pradhan seats. Effects are larger in bigger, weaker-oversight villages.",
+      "Does local elite control blunt the impact of democratic decentralization? We study Indian village governments (panchayats) in Uttar Pradesh and measure elite capture using the land-wealth share held by top landowners. We assemble a new village–year dataset linking full-count household land records from SECC to administrative data on panchayat leadership and development spending across major programs. Three results emerge. First, higher elite land share is associated with systematically lower per-capita development spending and a shift away from broad-based public goods. Second, elite control undercuts the positive effects of political reservations for historically disadvantaged pradhan seats: in high-capture villages, the spending gains from reservation are substantially reduced. Third, these patterns are stronger in larger, more socially fragmented, and weaker-oversight villages, consistent with lower accountability. Ongoing work is focused on causally identifying the effect of elite control by exploiting historical vaiation in land tenure regimes.",
   },
   {
     title: "Protests, Prosociality, and Public Goods",
     abstract:
-      "Using the 2020 farmers’ agitation in India, we test whether protest exposure shifts political engagement, norms, and welfare delivery. Villages closer to protest sites with a high share of agriculture-dependent workers see higher welfare spending, driven by targeted poverty-alleviation programs.",
+      "The political and economic effects of protest engagement have received considerable attention in the social sciences. This work aims to add to this literature by testing the hypothesis that protest participation can have effects on participants political engagement, inter-group norms and through these channels, on public goods provision and welfare delivery. To this end I study the 2020 farmers agitation in India. My results suggest that village closest to major protest sites with a high share of agriculture dependent workforce see a significant increase in welfare spending in the months following the protests. These effects are driven by increases in targeted poverty alleviation spending that primarily benefits the landless and backward caste groups.",
   },
   {
     title: "Redistribution and Human Capital: A Structural Approach",
     abstract:
-      "We estimate a structural model of human-capital accumulation in an agrarian setting, recover key parameters and threshold land-wealth levels, and quantify human-capital gains under more egalitarian land distributions.",
+      "We build and estimate a structural model of human capital accumulation with heterogeneous households—differing in land and liquid‐wealth endowments—tailored to an agrarian economy. Using linked survey, administrative, and full-count census microdata, we recover the core structural parameters: (i) a threshold wealth level beyond which additional wealth has little marginal effect on schooling investments; (ii) the strength of dynamic complementarity across the child’s life cycle (how early investments raise the productivity of later ones); and (iii) key opportunity-cost and returns parameters that govern the work–school tradeoff (wages, child labor prevalence, and school costs). With the estimated model, we run policy counterfactuals—modest land redistribution, targeted transfers/credit to land-poor households, and schooling-cost subsidies—to quantify resulting gains in schooling and human capital, and to decompose which margins (crossing the wealth threshold vs. amplifying complementarities) drive the aggregate impact.",
   },
 ];
 
 const WIP = [
   {
-    title: "The Land Mobility Atlas",
+    title: "The Land Education Atlas",
     abstract:
-      "This project maps the link between land distribution and intergenerational educational mobility across countries. Using data from 50 developing countries, we harmonize household surveys and census microdata to build comparable estimates of how land ownership relates to mobility. The Atlas shows where mobility rises once families cross minimal land thresholds—and where high land concentration holds mobility down.",
+      "This project maps the link between land distribution and intergenerational educational mobility across countries. Using data from 50 developing countries, we harmonize household surveys and census microdata to build comparable estimates of how land ownership relates to schooling and educational mobility. The Atlas shows where mobility rises once families cross minimal land thresholds—and where high land concentration holds mobility down.",
   },
   {
     title: "Credit Expansion and Firm Dynamics",
     coauthors: "with Anubhav Jha",
     abstract:
-      "We use data on the universe of India's formal-sector firms to study how shifts in credit supply affect entry, growth, employment, and productivity.",
+      "We assemble data on the universe of India’s formal-sector firms, complete credit registries (loans, defaults, and delinquencies), and staggered banking-sector expansion to study how shifts in credit supply shape firm entry and growth. We then examine how public-sector credit expansion affects subsequent private-sector lending to test whether public credit crowds out—or crowds in—private credit. To interpret these patterns, we develop and estimate a structural model of firm entry and growth with endogenous credit demand. In the model, potential entrants draw productivity, face collateral/borrowing constraints, and choose whether to enter and how much to borrow; incumbent firms choose growth and financing subject to evolving balance-sheet states. Estimating the model on the microdata yields primitives for entry costs, borrowing frictions (collateral elasticity, outside-option rates), and the responsiveness of credit demand to supply-side shifts. We use the estimated model for counterfactuals that trace firm entry, size distribution, and aggregate credit demand under alternative policies—e.g., targeted public-credit expansions, risk-weighted capital rules, or branch-opening mandates—and decompose impacts into selection (who enters) versus scaling (how much entrants and incumbents grow) and the consequences for private sector credit demand.",
   },
 ];
 
@@ -119,8 +119,8 @@ function Home() {
           className="home-photo"
           style={{
             flex: "0 0 280px",
-            width: 280,
-            height: 340,
+            width: 220,
+            height: 280,
             objectFit: "cover",
             borderRadius: 8,
             border: "1px solid #ddd",
@@ -144,8 +144,8 @@ function Home() {
             </p>
             <p>
               My research explores how inequality affects social mobility, human
-              capital attainment, and the political economy of development, with a
-              particular emphasis on developing-country contexts.
+              capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
+              of interegenrational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
