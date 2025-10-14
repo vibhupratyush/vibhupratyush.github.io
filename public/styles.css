@@ -112,4 +112,58 @@ header ul a, header ul li + li + li { all: unset; }
   body { padding: 0.4in; font-size: 12pt; color: #444; }
 }
 
+/* === Typography refresh to match the reference look === */
+body {
+  font-family: "Lora", Georgia, "Times New Roman", serif !important;
+  font-size: 18.5px !important;      /* ~19px body size */
+  line-height: 1.7 !important;
+  color: #222 !important;             /* darker body text */
+}
+
+/* Wider readable column */
+.wrapper {
+  max-width: 980px !important;        /* a bit wider than 860px */
+}
+
+/* Headings: elegant serif with clear hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Crimson Text", Georgia, "Times New Roman", serif !important;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  color: #111;
+  margin: 0 0 0.6em;
+  line-height: 1.25;
+}
+h1 { font-size: 42px; }
+h2 { font-size: 30px; }
+h3 { font-size: 22px; }
+
+/* Body text rhythm */
+p, ul, ol, dl, blockquote {
+  margin: 0 0 1.1em;
+}
+
+/* Links: subtle academic red; darken on hover */
+a { color: #900; text-decoration: none; }
+a:hover { color: #600; text-decoration: underline; }
+
+/* Tables & code slightly refined */
+pre, code { font-size: 0.95em; }
+table { font-size: 0.95em; }
+
+/* Home hero fine-tuning so text doesn’t feel cramped */
+.home-intro {
+  max-width: 78ch !important;         /* a touch wider paragraph */
+}
+.home-text h1 {
+  font-size: 44px;                    /* larger name */
+  line-height: 1.15;
+}
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  body { font-size: 17px !important; }
+  .wrapper { padding: 0 4px; }
+}
+
 
