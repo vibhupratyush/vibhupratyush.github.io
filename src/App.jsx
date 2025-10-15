@@ -227,35 +227,50 @@ function Teaching() {
       course: "ECON 304 — Microeconomic Theory, Honours",
       institution: "UBC",
       term: "2022, 2023"
-    }
+    },
 
     {
       role: "Teaching Assistant",
       course: "ECON 305 — Microeconomic Theory, Honours",
       institution: "UBC",
       term: "2022, 2023"
-    }
+    },
 
    { 
       role: "Teaching Assistant",
       course: "ECON 306 — Microeconomic Theory, Honours",
       institution: "UBC",
       term: "2024"
-    }
+    },
 
    {   
       role: "Teaching Assistant",
       course: "ECON 307 — Macroeconomic Theory, Honours",
       institution: "UBC",
       term: "2024"
-    }
-    
-    {
-      role: "Teaching Assistant",
-      course: "ECON 326 — Econometrics",
-      institution: "UBC",
-      term: "2023, 2025"
     },
+    
+    { 
+      role: "Teaching Assistant",
+      course: "ECON 306 — Microeconomic Theory, Honours",
+      institution: "UBC",
+      term: "2024"
+    },
+
+    { 
+      role: "Teaching Assistant",
+      course: "ECON 326 — Intermediate Econometrics",
+      institution: "UBC",
+      term: "2022, 2025"
+    },
+
+    { 
+      role: "Teaching Assistant",
+      course: "ECON 356 — Land and Resource Economics",
+      institution: "UBC",
+      term: "2024"
+    },
+    
     {
       role: "Teaching Assistant",
       course: "ECON 302 — Intermediate Macroeconomics",
@@ -266,7 +281,7 @@ function Teaching() {
       role: "Teaching Assistant",
       course: "ECON 101 — Principles of Microeconomics",
       institution: "UBC",
-      term: "2019, 2020, 2021, 2024"
+      term: "2019, 2020, 2021, 2025"
     },
     {
       role: "Teaching Assistant",
