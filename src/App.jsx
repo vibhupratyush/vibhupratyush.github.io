@@ -147,6 +147,9 @@ function Home() {
               capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
               of interegenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
+            <p>
+              You can reach me at vibhu1@student.ubc.ca.
+            </p>
             <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
           </div>
 
@@ -155,7 +158,7 @@ function Home() {
               <span aria-hidden="true">✉️</span> Email
             </a>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
-              <span aria-hidden="true">in</span> LinkedIn
+              <span aria-hidden="true"></span> LinkedIn
             </a>
             <a href="#/research" title="Research">Research</a>
             <a href="#/teaching" title="Teaching">Teaching</a>
