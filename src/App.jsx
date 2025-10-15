@@ -224,23 +224,55 @@ function Teaching() {
   const TEACHING = [
     {
       role: "Teaching Assistant",
-      course: "ECON 101 — Principles of Microeconomics",
+      course: "ECON 304 — Microeconomic Theory, Honours",
       institution: "UBC",
-      term: "2023–2024",
-      notes:
-        "Led tutorials on consumer/producer theory and introductory causal inference; ran R lab sessions and problem classes.",
-      syllabus: "",
-      site: "",
-    },
+      term: "2022, 2023"
+    }
+
+    {
+      role: "Teaching Assistant",
+      course: "ECON 305 — Microeconomic Theory, Honours",
+      institution: "UBC",
+      term: "2022, 2023"
+    }
+
+   { 
+      role: "Teaching Assistant",
+      course: "ECON 306 — Microeconomic Theory, Honours",
+      institution: "UBC",
+      term: "2024"
+    }
+
+   {   
+      role: "Teaching Assistant",
+      course: "ECON 307 — Macroeconomic Theory, Honours",
+      institution: "UBC",
+      term: "2024"
+    }
+    
     {
       role: "Teaching Assistant",
       course: "ECON 326 — Econometrics",
       institution: "UBC",
-      term: "2024–2025",
-      notes:
-        "TA for undergraduate econometrics; recitations on regression/IV and coding walk-throughs in R/Stata.",
-      syllabus: "",
-      site: "",
+      term: "2023, 2025"
+    },
+    {
+      role: "Teaching Assistant",
+      course: "ECON 302 — Intermediate Macroeconomics",
+      institution: "UBC",
+      term: "2022"
+    },
+    {
+      role: "Teaching Assistant",
+      course: "ECON 101 — Principles of Microeconomics",
+      institution: "UBC",
+      term: "2019, 2020, 2021, 2024"
+    },
+    {
+      role: "Teaching Assistant",
+      course: "ECON 102 — Principles of Macroeconomics",
+      institution: "UBC",
+      term: "2020, 2021, 2024"
     },
   ];
 
