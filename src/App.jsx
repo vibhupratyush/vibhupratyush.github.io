@@ -15,16 +15,7 @@ const JMP = {
   title: "Land for Opportunity? Deprivation and Immobility in Rural India",
   coauthors: "with Pulak Ghosh",
   abstract:
-    "We examine how land ownership shapes educational mobility in rural India. Using full-count
-rural census microdata, we document a robust step-function pattern across the land distribution:
-educational mobility rises sharply from the landless to marginal landholders and then plateaus.
-Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link
-between higher landlessness and lower educational mobility. To unpack mechanisms, we develop a
-model where parents allocate children’s time between school and work under a subsistence constraint.
-With little or no land, the constraint binds, increasing child labour and suppressing schooling; a
-small rise in land relaxes it, producing a sharp drop in child labour and a jump in schooling and
-upward mobility. The framework endogenously generates the step-function, matches the core facts,
-rationalizes heterogeneities, and yields testable predictions that we validate.",
+    "We examine how land ownership shapes educational mobility in rural India. Using full-count rural census microdata, we document a robust step-function pattern across the land distribution: educational mobility rises sharply from the landless to marginal landholders and then plateaus. Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link between higher landlessness and lower educational mobility. To unpack mechanisms, we develop a model where parents allocate children’s time between school and work under a subsistence constraint. With little or no land, the constraint binds, increasing child labour and suppressing schooling; a small rise in land relaxes it, producing a sharp drop in child labour and a jump in schooling and upward mobility. The framework endogenously generates the step-function, matches the core facts, rationalizes heterogeneities, and yields testable predictions that we validate.",
   pdf: "/jmp.pdf", // set to "/papers/JMP_draft.pdf" when ready
 };
 
