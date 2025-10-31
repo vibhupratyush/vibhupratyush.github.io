@@ -148,7 +148,7 @@ function Home() {
               of interegenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
 
-            <p> I am a PhD Fellow at the Stone Center on Wealth and Income inequality at UBC.
+            <p> I am a PhD Fellow at the Stone Center on Wealth and Income Inequality at UBC.
             </p>
             <p>
               You can reach me at vibhu1@student.ubc.ca.
