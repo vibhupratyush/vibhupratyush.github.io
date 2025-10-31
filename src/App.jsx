@@ -12,11 +12,20 @@ const PROFILE = {
 };
 
 const JMP = {
-  title: "Land for Opportunity? Deprivation and Intergenerational Mobility in Rural India",
+  title: "Land for Opportunity? Deprivation and Immobility in Rural India",
   coauthors: "with Pulak Ghosh",
   abstract:
-    "We study how inequality in land wealth—especially landlessness—constrains educational mobility in rural India. Using full-count rural census microdata, we document a striking step pattern across the land distribution: mobility jumps sharply from the landless to marginal landholders and then levels off. Leveraging historical variation in British-era land-tenure regimes, we show that higher landlessness causally reduces educational mobility. To unpack mechanisms, we develop and empirically validate a model that endogenously produces this step via subsistence constraints, dynamic complementarity in educational investments, the prevalence of child labour and the rising opportunity cost of schooling over the child’s life cycle, and concavity in returns to land. The model predicts the core facts in the data, explains cross-state heterogeneity in the mobility–land relationship, and yields a set of sharp predictions that we confirm. To our knowledge, this is the first study in a developing-country context to (i) precisely identify the causal link between landlessness and mobility and (ii) theoretically pin down—and empirically validate—the mechanism behind it.",
-  pdf: "", // set to "/papers/JMP_draft.pdf" when ready
+    "We examine how land ownership shapes educational mobility in rural India. Using full-count
+rural census microdata, we document a robust step-function pattern across the land distribution:
+educational mobility rises sharply from the landless to marginal landholders and then plateaus.
+Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link
+between higher landlessness and lower educational mobility. To unpack mechanisms, we develop a
+model where parents allocate children’s time between school and work under a subsistence constraint.
+With little or no land, the constraint binds, increasing child labour and suppressing schooling; a
+small rise in land relaxes it, producing a sharp drop in child labour and a jump in schooling and
+upward mobility. The framework endogenously generates the step-function, matches the core facts,
+rationalizes heterogeneities, and yields testable predictions that we validate.",
+  pdf: "/jmp.pdf", // set to "/papers/JMP_draft.pdf" when ready
 };
 
 const WORKING_PAPERS = [
@@ -147,6 +156,9 @@ function Home() {
               capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
               of interegenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
+
+            <p> I am a PhD Fellow at the Stone Center on Wealth and Income inequality at UBC.
+            </p>
             <p>
               You can reach me at vibhu1@student.ubc.ca.
             </p>
@@ -176,27 +188,47 @@ function Research() {
     <article>
       <h2>Job Market Paper</h2>
       <div>
-        <div style={{ fontWeight: 600 }}>{JMP.title}</div>
-        {JMP.coauthors && <div style={{ color: "#666" }}>{JMP.coauthors}</div>}
-        <p style={{ marginTop: 6, fontSize: "0.95em" }}>
-          {JMP.pdf ? (
-            <a href={JMP.pdf} target="_blank" rel="noreferrer">[Draft]</a>
-          ) : (
-            <span style={{ color: "#777" }}>[Draft coming soon]</span>
-          )}
-          {" "}
-          <a
-            href="#/research"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowJmp((s) => !s);
-            }}
-          >
-            [Show/Hide Abstract]
-          </a>
-        </p>
-        {showJmp && <p style={{ maxWidth: "80ch", lineHeight: 1.55 }}>{JMP.abstract}</p>}
-      </div>
+  {/* Title becomes a clickable link if PDF is present */}
+  <div style={{ fontWeight: 600 }}>
+    {JMP.pdf ? (
+      <a
+        href={JMP.pdf}
+        target="_blank"
+        rel="noreferrer"
+        style={{ textDecoration: "none" }}
+        title="Open latest JMP (PDF)"
+      >
+        {JMP.title}
+      </a>
+    ) : (
+      JMP.title
+    )}
+  </div>
+
+  {/* Coauthors line (unchanged) */}
+  {JMP.coauthors && <div style={{ color: "#666" }}>{JMP.coauthors}</div>}
+
+  {/* Links row: show PDF if present; remove grey 'Draft coming soon' */}
+  <p style={{ marginTop: 6, fontSize: "0.95em" }}>
+    {JMP.pdf && (
+      <>
+        <a href={JMP.pdf} target="_blank" rel="noreferrer">[PDF]</a>{" "}
+      </>
+    )}
+    <a
+      href="#/research"
+      onClick={(e) => {
+        e.preventDefault();
+        setShowJmp((s) => !s);
+      }}
+    >
+      [Show/Hide Abstract]
+    </a>
+  </p>
+
+  {/* Abstract toggle (unchanged) */}
+  {showJmp && <p style={{ maxWidth: "80ch", lineHeight: 1.55 }}>{JMP.abstract}</p>}
+</div>
 
       <h2>Working Papers</h2>
       {WORKING_PAPERS.length === 0 ? (
