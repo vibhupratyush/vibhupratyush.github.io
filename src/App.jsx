@@ -145,7 +145,7 @@ function Home() {
             <p>
               My research explores how inequality affects social mobility, human
               capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
-              of interegenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
+              of intergenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
             </p>
 
             <p> I am a PhD Fellow at the Stone Center on Wealth and Income Inequality at UBC.
