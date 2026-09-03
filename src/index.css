@@ -1,1 +1,347 @@
-/* Using Tailwind CDN; keep empty or add tiny overrides if needed. */
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #202124;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --link: #1a5fb4;
+  --link-hover: #174ea6;
+  --muted: #5f6368;
+  --rule: #dadce0;
+  --content-width: 900px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #ffffff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #202124;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1.15rem;
+}
+
+h1,
+h2,
+h3 {
+  color: #202124;
+  font-weight: 400;
+}
+
+h1 {
+  margin: 0 0 1.65rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  margin: 0 0 1.05rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.site-shell {
+  width: min(var(--content-width), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.site-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-name {
+  color: #202124;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+.site-name:hover,
+.site-name:focus-visible {
+  color: #202124;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 0.94rem;
+}
+
+.site-nav a {
+  color: #3c4043;
+  padding: 27px 0 24px;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: #202124;
+  text-decoration: none;
+  border-bottom-color: #9aa0a6;
+}
+
+.site-nav a.active {
+  color: #202124;
+  border-bottom-color: #202124;
+}
+
+.site-content {
+  padding: 48px 0 24px;
+}
+
+.site-footer {
+  margin-top: 42px;
+  padding: 22px 0 34px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Home */
+.home-page > h1 {
+  margin-bottom: 2rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 215px minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.profile-photo {
+  display: block;
+  width: 215px;
+  height: 286px;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 0;
+  border-radius: 0;
+}
+
+.contact-block {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.contact-links {
+  margin-top: 8px;
+}
+
+.home-copy {
+  max-width: 620px;
+}
+
+.home-copy p:first-child {
+  margin-top: -0.2rem;
+}
+
+.job-market-note {
+  font-weight: 600;
+}
+
+/* Research */
+.research-section + .research-section {
+  margin-top: 3rem;
+}
+
+.research-section > h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.paper-list {
+  display: block;
+}
+
+.paper-item {
+  padding: 0 0 1.75rem;
+}
+
+.paper-item + .paper-item {
+  padding-top: 0.15rem;
+}
+
+.paper-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.paper-title a {
+  color: #202124;
+}
+
+.paper-title a:hover,
+.paper-title a:focus-visible {
+  color: var(--link);
+}
+
+.paper-coauthors {
+  margin-top: 0.18rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.38rem;
+  font-size: 0.9rem;
+}
+
+.text-link {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--link);
+  cursor: pointer;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.paper-abstract {
+  max-width: 790px;
+  margin: 0.8rem 0 0;
+  color: #3c4043;
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.featured-paper {
+  padding-bottom: 0.5rem;
+}
+
+/* Teaching */
+.teaching-list {
+  max-width: 720px;
+}
+
+.teaching-item {
+  margin-bottom: 1.3rem;
+}
+
+.teaching-course {
+  font-weight: 600;
+}
+
+.teaching-meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(100% - 32px, var(--content-width));
+  }
+
+  .site-header {
+    min-height: 0;
+    padding: 19px 0 13px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-nav {
+    width: 100%;
+    gap: 19px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  .site-nav a {
+    padding: 5px 0 10px;
+    white-space: nowrap;
+  }
+
+  .site-content {
+    padding-top: 34px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .profile-photo {
+    width: min(215px, 70vw);
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .contact-block {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    font-size: 15.5px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .site-nav {
+    gap: 15px;
+  }
+}
