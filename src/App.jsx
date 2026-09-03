@@ -21,7 +21,7 @@ const JMP = {
 const WORK_IN_PROGRESS  = [
   {
     title: "Elite Control and the Political Economy of Development: Evidence from India",
-    coauthors: "with Aditi Singh and Pulak Ghosh",
+    coauthors: "with Pulak Ghosh",
     abstract:
       "Does local elite control blunt the impact of democratic decentralization? We study Indian village governments (panchayats) in Uttar Pradesh and measure elite capture using the land-wealth share held by top landowners. We assemble a new village–year dataset linking full-count household land records from SECC to administrative data on panchayat leadership and development spending across major programs. Three results emerge. First, higher elite land share is associated with systematically lower per-capita development spending and a shift away from broad-based public goods. Second, elite control undercuts the positive effects of political reservations for historically disadvantaged pradhan seats: in high-capture villages, the spending gains from reservation are substantially reduced. Third, these patterns are stronger in larger, more socially fragmented, and weaker-oversight villages, consistent with lower accountability. Ongoing work is focused on causally identifying the effect of elite control by exploiting historical variation in land tenure regimes.",
   },
