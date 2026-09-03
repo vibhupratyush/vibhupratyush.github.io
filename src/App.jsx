@@ -71,7 +71,6 @@ export default function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="site-name" href="#/">{PROFILE.name}</a>
         <nav className="site-nav" aria-label="Primary navigation">
           <NavLink href="#/" active={route === "home"}>Home</NavLink>
           <NavLink href="#/research" active={route === "research"}>Research</NavLink>
@@ -102,7 +101,7 @@ function NavLink({ href, active, children }) {
 function Home() {
   return (
     <article className="home-page">
-      <h1>{PROFILE.name}</h1>
+      <h1 style={{ textAlign: "center", color: "#0645ad" }}>{PROFILE.name}</h1>
       <div className="home-grid">
         <div className="portrait-column">
           <img src={PROFILE.photo} alt={`${PROFILE.name} headshot`} className="profile-photo" />
@@ -150,9 +149,9 @@ function Research() {
       </section>
 
       <section className="research-section">
-        <h2>Working Papers</h2>
+        <h2>Work in Progress</h2>
         <div className="paper-list">
-          {WORKING_PAPERS.map((paper) => (
+          {WORK_IN_PROGRESS.map((paper) => (
             <PaperItem key={paper.title} {...paper} />
           ))}
         </div>
