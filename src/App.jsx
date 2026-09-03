@@ -129,7 +129,7 @@ function Home() {
             intergenerational mobility and why the poor and vulnerable in the developing world fall
             behind in acquiring skills and human capital.
           </p>
-          <p>I am a PhD Fellow at the Stone Center on Wealth and Income Inequality at UBC.</p>
+          <p>I am a PhD Fellow at the Stone Centre on Wealth and Income Inequality at UBC.</p>
           <p>You can reach me at <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.</p>
           <p className="job-market-note">I am on the 2025/26 job market.</p>
         </div>
