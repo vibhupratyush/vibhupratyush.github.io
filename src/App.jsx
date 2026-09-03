@@ -27,19 +27,6 @@ const WORKING_PAPERS = [
       "Does local elite control blunt the impact of democratic decentralization? We study Indian village governments (panchayats) in Uttar Pradesh and measure elite capture using the land-wealth share held by top landowners. We assemble a new village–year dataset linking full-count household land records from SECC to administrative data on panchayat leadership and development spending across major programs. Three results emerge. First, higher elite land share is associated with systematically lower per-capita development spending and a shift away from broad-based public goods. Second, elite control undercuts the positive effects of political reservations for historically disadvantaged pradhan seats: in high-capture villages, the spending gains from reservation are substantially reduced. Third, these patterns are stronger in larger, more socially fragmented, and weaker-oversight villages, consistent with lower accountability. Ongoing work is focused on causally identifying the effect of elite control by exploiting historical variation in land tenure regimes.",
   },
   {
-    title: "Protests, Prosociality, and Public Goods",
-    abstract:
-      "The political and economic effects of protest engagement have received considerable attention in the social sciences. This work aims to add to this literature by testing the hypothesis that protest participation can have effects on participants political engagement, inter-group norms and through these channels, on public goods provision and welfare delivery. To this end I study the 2020 farmers agitation in India. My results suggest that villages closest to major protest sites with a high share of agriculture dependent workforce see a significant increase in welfare spending in the months following the protests. These effects are driven by increases in targeted poverty alleviation spending that primarily benefits the landless and backward caste groups.",
-  },
-  {
-    title: "Redistribution and Human Capital: A Structural Approach",
-    abstract:
-      "We build and estimate a structural model of human capital accumulation with heterogeneous households—differing in land and liquid‐wealth endowments—tailored to an agrarian economy. Using linked survey, administrative, and full-count census microdata, we recover the core structural parameters: (i) a threshold wealth level beyond which additional wealth has little marginal effect on schooling investments; (ii) the strength of dynamic complementarity across the child’s life cycle (how early investments raise the productivity of later ones); and (iii) key opportunity-cost and returns parameters that govern the work–school tradeoff (wages, child labor prevalence, and school costs). With the estimated model, we run policy counterfactuals—modest land redistribution, targeted transfers/credit to land-poor households, and schooling-cost subsidies—to quantify resulting gains in schooling and human capital.",
-  },
-];
-
-const WIP = [
-  {
     title: "The Land Education Atlas",
     abstract:
       "This project maps the link between land distribution and intergenerational educational mobility across countries. Using data from 50 developing countries, we harmonize household surveys and census microdata to build comparable estimates of how land ownership relates to schooling and educational mobility. The Atlas shows where mobility rises once families cross minimal land thresholds—and where high land concentration holds mobility down.",
@@ -232,16 +219,6 @@ function Research() {
         </div>
       )}
 
-      <h2>Works in Progress</h2>
-      {WIP.length === 0 ? (
-        <p style={{ color: "#666" }}>None yet.</p>
-      ) : (
-        <div style={{ display: "grid", gap: 16 }}>
-          {WIP.map((p, i) => (
-            <PaperItem key={i} {...p} />
-          ))}
-        </div>
-      )}
     </article>
   );
 }
