@@ -18,7 +18,7 @@ const JMP = {
   pdf: "/jmp.pdf",
 };
 
-const WORKING_PAPERS = [
+const WORK_IN_PROGRESS  = [
   {
     title: "Elite Control and the Political Economy of Development: Evidence from India",
     coauthors: "with Aditi Singh and Pulak Ghosh",
