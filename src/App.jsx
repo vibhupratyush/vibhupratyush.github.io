@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-/** ---------- SITE DATA (edit) ---------- */
 const PROFILE = {
   name: "Vibhu Pratyush",
   title: "Ph.D. Candidate, Economics",
@@ -16,7 +15,7 @@ const JMP = {
   coauthors: "with Pulak Ghosh",
   abstract:
     "We examine how land ownership shapes educational mobility in rural India. Using full-count rural census microdata, we document a robust step-function pattern across the land distribution: educational mobility rises sharply from the landless to marginal landholders and then plateaus. Exploiting historical variation in British-era land-tenure regimes, we demonstrate a causal link between higher landlessness and lower educational mobility. To unpack mechanisms, we develop a model where parents allocate children’s time between school and work under a subsistence constraint. With little or no land, the constraint binds, increasing child labour and suppressing schooling; a small rise in land relaxes it, producing a sharp drop in child labour and a jump in schooling and upward mobility. The framework endogenously generates the step-function, matches the core facts, rationalizes heterogeneities, and yields testable predictions that we validate.",
-  pdf: "/jmp.pdf", // set to "/papers/JMP_draft.pdf" when ready
+  pdf: "/jmp.pdf",
 };
 
 const WORKING_PAPERS = [
@@ -39,121 +38,101 @@ const WORKING_PAPERS = [
   },
 ];
 
-/** ---------- APP ---------- */
+const TEACHING = [
+  { role: "Teaching Assistant", course: "ECON 304 — Microeconomic Theory, Honours", institution: "UBC", term: "2022, 2023" },
+  { role: "Teaching Assistant", course: "ECON 305 — Microeconomic Theory, Honours", institution: "UBC", term: "2022, 2023" },
+  { role: "Teaching Assistant", course: "ECON 306 — Microeconomic Theory, Honours", institution: "UBC", term: "2024" },
+  { role: "Teaching Assistant", course: "ECON 307 — Macroeconomic Theory, Honours", institution: "UBC", term: "2024" },
+  { role: "Teaching Assistant", course: "ECON 306 — Microeconomic Theory, Honours", institution: "UBC", term: "2024" },
+  { role: "Teaching Assistant", course: "ECON 326 — Intermediate Econometrics", institution: "UBC", term: "2022, 2025" },
+  { role: "Teaching Assistant", course: "ECON 356 — Land and Resource Economics", institution: "UBC", term: "2024" },
+  { role: "Teaching Assistant", course: "ECON 302 — Intermediate Macroeconomics", institution: "UBC", term: "2022" },
+  { role: "Teaching Assistant", course: "ECON 101 — Principles of Microeconomics", institution: "UBC", term: "2019, 2020, 2021, 2025" },
+  { role: "Teaching Assistant", course: "ECON 102 — Principles of Macroeconomics", institution: "UBC", term: "2020, 2021, 2024" },
+];
+
+function getRoute() {
+  const hash = (typeof window !== "undefined" && window.location.hash) || "#/";
+  if (hash.startsWith("#/research")) return "research";
+  if (hash.startsWith("#/teaching")) return "teaching";
+  return "home";
+}
+
 export default function App() {
-  // tiny debug so we know it mounted on the live page
-  console.log("App mounted");
-
-  const getRoute = () => {
-    const h = (typeof window !== "undefined" && window.location.hash) || "#/";
-    if (h.startsWith("#/research")) return "research";
-    if (h.startsWith("#/teaching")) return "teaching";
-    return "home";
-  };
-
   const [route, setRoute] = useState(getRoute());
 
   useEffect(() => {
     if (!window.location.hash) window.location.hash = "#/";
-    const onHash = () => setRoute(getRoute());
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
+    const onHashChange = () => setRoute(getRoute());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   return (
-    <div className="wrapper">
-      <header>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16 }}>
-          <h1 style={{ margin: 0 }}>{/* keep header minimal */}</h1>
-          <p className="view" style={{ margin: 0 }}>
-            <a href="#/">Home</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-            <a href="#/research">Research</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-            <a href="#/teaching">Teaching</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-            <a href={PROFILE.cv} target="_blank" rel="noreferrer">CV</a>
-          </p>
-        </div>
+    <div className="site-shell">
+      <header className="site-header">
+        <a className="site-name" href="#/">{PROFILE.name}</a>
+        <nav className="site-nav" aria-label="Primary navigation">
+          <NavLink href="#/" active={route === "home"}>Home</NavLink>
+          <NavLink href="#/research" active={route === "research"}>Research</NavLink>
+          <NavLink href="#/teaching" active={route === "teaching"}>Teaching</NavLink>
+          <a href={PROFILE.cv} target="_blank" rel="noreferrer">CV</a>
+        </nav>
       </header>
 
-      <section id="content">
+      <main className="site-content">
         {route === "research" ? <Research /> : route === "teaching" ? <Teaching /> : <Home />}
-      </section>
+      </main>
 
-      <footer>
-        <p>© {new Date().getFullYear()} {PROFILE.name}</p>
+      <footer className="site-footer">
+        © {new Date().getFullYear()} {PROFILE.name}
       </footer>
     </div>
   );
 }
 
-/** ---------- PAGES ---------- */
+function NavLink({ href, active, children }) {
+  return (
+    <a href={href} className={active ? "active" : undefined} aria-current={active ? "page" : undefined}>
+      {children}
+    </a>
+  );
+}
 
 function Home() {
-  // Inline styles ensure layout even if theme CSS overrides things
   return (
-    <article>
-      <div
-        className="home-row"
-        style={{
-          display: "flex",
-          alignItems: "flex-start",
-          gap: 24,
-          flexWrap: "nowrap",
-        }}
-      >
-        <img
-          src={PROFILE.photo}
-          alt={`${PROFILE.name} headshot`}
-          className="home-photo"
-          style={{
-            flex: "0 0 280px",
-            width: 220,
-            height: 280,
-            objectFit: "cover",
-            borderRadius: 8,
-            border: "1px solid #ddd",
-            margin: 0,
-            display: "block",
-          }}
-        />
-
-        <div className="home-text" style={{ flex: "1 1 auto", minWidth: 0 }}>
-          <h1 style={{ marginTop: 0, marginBottom: 8, fontSize: "2.25rem", lineHeight: 1.2 }}>
-            {PROFILE.name}
-          </h1>
-          <p style={{ margin: 0 }}>{PROFILE.title}</p>
-          <p style={{ marginTop: 4 }}>{PROFILE.affiliation}</p>
-
-          <div className="home-intro" style={{ marginTop: 16, lineHeight: 1.55, maxWidth: "72ch" }}>
-            <p>
-              Welcome! I am an applied microeconomist with research interests in
-              development economics, public economics, inequality, and political
-              economy.
-            </p>
-            <p>
-              My research explores how inequality affects social mobility, human
-              capital attainment, and the political economy of development. I am particularly interested in exploring the determinants
-              of intergenerational mobility and why the poor and vulnerable in the developing world fall behind in acquiring skills and human capital.   
-            </p>
-
-            <p> I am a PhD Fellow at the Stone Center on Wealth and Income Inequality at UBC.
-            </p>
-            <p>
-              You can reach me at vibhu1@student.ubc.ca.
-            </p>
-            <p style={{ fontWeight: 600 }}>I am on the 2025/26 job market.</p>
+    <article className="home-page">
+      <h1>{PROFILE.name}</h1>
+      <div className="home-grid">
+        <div className="portrait-column">
+          <img src={PROFILE.photo} alt={`${PROFILE.name} headshot`} className="profile-photo" />
+          <div className="contact-block">
+            <div>{PROFILE.title}</div>
+            <div>{PROFILE.affiliation}</div>
+            <div className="contact-links">
+              <a href={`mailto:${PROFILE.email}`}>Email</a>
+              <span aria-hidden="true"> · </span>
+              <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href={PROFILE.cv} target="_blank" rel="noreferrer">CV</a>
+            </div>
           </div>
+        </div>
 
-          <div style={{ display: "flex", gap: 12, marginTop: 16, flexWrap: "wrap" }}>
-            <a href={`mailto:${PROFILE.email}`} title="Email">
-              <span aria-hidden="true">✉️</span> Email
-            </a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
-              <span aria-hidden="true"></span> LinkedIn
-            </a>
-            <a href="#/research" title="Research">Research</a>
-            <a href="#/teaching" title="Teaching">Teaching</a>
-            <a href={PROFILE.cv} target="_blank" rel="noreferrer" title="CV">CV (PDF)</a>
-          </div>
+        <div className="home-copy">
+          <p>
+            Welcome! I am an applied microeconomist with research interests in development economics,
+            public economics, inequality, and political economy.
+          </p>
+          <p>
+            My research explores how inequality affects social mobility, human capital attainment, and
+            the political economy of development. I am particularly interested in the determinants of
+            intergenerational mobility and why the poor and vulnerable in the developing world fall
+            behind in acquiring skills and human capital.
+          </p>
+          <p>I am a PhD Fellow at the Stone Center on Wealth and Income Inequality at UBC.</p>
+          <p>You can reach me at <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.</p>
+          <p className="job-market-note">I am on the 2025/26 job market.</p>
         </div>
       </div>
     </article>
@@ -161,197 +140,68 @@ function Home() {
 }
 
 function Research() {
-  const [showJmp, setShowJmp] = useState(true);
   return (
     <article>
-      <h2>Job Market Paper</h2>
-      <div>
-  {/* Title becomes a clickable link if PDF is present */}
-  <div style={{ fontWeight: 600 }}>
-    {JMP.pdf ? (
-      <a
-        href={JMP.pdf}
-        target="_blank"
-        rel="noreferrer"
-        style={{ textDecoration: "none" }}
-        title="Open latest JMP (PDF)"
-      >
-        {JMP.title}
-      </a>
-    ) : (
-      JMP.title
-    )}
-  </div>
+      <h1>Research</h1>
 
-  {/* Coauthors line (unchanged) */}
-  {JMP.coauthors && <div style={{ color: "#666" }}>{JMP.coauthors}</div>}
+      <section className="research-section">
+        <h2>Job Market Paper</h2>
+        <PaperItem {...JMP} featured defaultOpen />
+      </section>
 
-  {/* Links row: show PDF if present; remove grey 'Draft coming soon' */}
-  <p style={{ marginTop: 6, fontSize: "0.95em" }}>
-    {JMP.pdf && (
-      <>
-        <a href={JMP.pdf} target="_blank" rel="noreferrer">[PDF]</a>{" "}
-      </>
-    )}
-    <a
-      href="#/research"
-      onClick={(e) => {
-        e.preventDefault();
-        setShowJmp((s) => !s);
-      }}
-    >
-      [Show/Hide Abstract]
-    </a>
-  </p>
-
-  {/* Abstract toggle (unchanged) */}
-  {showJmp && <p style={{ maxWidth: "80ch", lineHeight: 1.55 }}>{JMP.abstract}</p>}
-</div>
-
-      <h2>Working Papers</h2>
-      {WORKING_PAPERS.length === 0 ? (
-        <p style={{ color: "#666" }}>None yet.</p>
-      ) : (
-        <div style={{ display: "grid", gap: 16 }}>
-          {WORKING_PAPERS.map((p, i) => (
-            <PaperItem key={i} {...p} />
+      <section className="research-section">
+        <h2>Working Papers</h2>
+        <div className="paper-list">
+          {WORKING_PAPERS.map((paper) => (
+            <PaperItem key={paper.title} {...paper} />
           ))}
         </div>
-      )}
+      </section>
+    </article>
+  );
+}
 
+function PaperItem({ title, coauthors, abstract, pdf, slides, featured = false, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <article className={`paper-item${featured ? " featured-paper" : ""}`}>
+      <h3 className="paper-title">
+        {pdf ? (
+          <a href={pdf} target="_blank" rel="noreferrer">{title}</a>
+        ) : title}
+      </h3>
+      {coauthors && <div className="paper-coauthors">{coauthors}</div>}
+
+      <div className="paper-links">
+        {pdf && <a href={pdf} target="_blank" rel="noreferrer">PDF</a>}
+        {slides && <a href={slides} target="_blank" rel="noreferrer">Slides</a>}
+        {abstract && (
+          <button type="button" className="text-link" onClick={() => setOpen((value) => !value)}>
+            {open ? "Hide abstract" : "Abstract"}
+          </button>
+        )}
+      </div>
+
+      {open && abstract && <p className="paper-abstract">{abstract}</p>}
     </article>
   );
 }
 
 function Teaching() {
-  const TEACHING = [
-    {
-      role: "Teaching Assistant",
-      course: "ECON 304 — Microeconomic Theory, Honours",
-      institution: "UBC",
-      term: "2022, 2023"
-    },
-
-    {
-      role: "Teaching Assistant",
-      course: "ECON 305 — Microeconomic Theory, Honours",
-      institution: "UBC",
-      term: "2022, 2023"
-    },
-
-   { 
-      role: "Teaching Assistant",
-      course: "ECON 306 — Microeconomic Theory, Honours",
-      institution: "UBC",
-      term: "2024"
-    },
-
-   {   
-      role: "Teaching Assistant",
-      course: "ECON 307 — Macroeconomic Theory, Honours",
-      institution: "UBC",
-      term: "2024"
-    },
-    
-    { 
-      role: "Teaching Assistant",
-      course: "ECON 306 — Microeconomic Theory, Honours",
-      institution: "UBC",
-      term: "2024"
-    },
-
-    { 
-      role: "Teaching Assistant",
-      course: "ECON 326 — Intermediate Econometrics",
-      institution: "UBC",
-      term: "2022, 2025"
-    },
-
-    { 
-      role: "Teaching Assistant",
-      course: "ECON 356 — Land and Resource Economics",
-      institution: "UBC",
-      term: "2024"
-    },
-    
-    {
-      role: "Teaching Assistant",
-      course: "ECON 302 — Intermediate Macroeconomics",
-      institution: "UBC",
-      term: "2022"
-    },
-    {
-      role: "Teaching Assistant",
-      course: "ECON 101 — Principles of Microeconomics",
-      institution: "UBC",
-      term: "2019, 2020, 2021, 2025"
-    },
-    {
-      role: "Teaching Assistant",
-      course: "ECON 102 — Principles of Macroeconomics",
-      institution: "UBC",
-      term: "2020, 2021, 2024"
-    },
-  ];
-
   return (
     <article>
-      <h2>Teaching</h2>
-      {TEACHING.length === 0 ? (
-        <p style={{ color: "#666" }}>No teaching listed yet.</p>
-      ) : (
-        <div style={{ display: "grid", gap: 20 }}>
-          {TEACHING.map((t, i) => (
-            <div key={i}>
-              <div style={{ fontWeight: 600 }}>
-                {t.course}
-                {t.term ? <span style={{ color: "#666", fontWeight: 400 }}> — {t.term}</span> : null}
-              </div>
-              <div style={{ color: "#666" }}>
-                {t.role}{t.institution ? `, ${t.institution}` : ""}
-              </div>
-              {t.notes && (
-                <p style={{ maxWidth: "80ch", lineHeight: 1.55, marginTop: 6 }}>{t.notes}</p>
-              )}
-              {(t.syllabus || t.site) && (
-                <p style={{ marginTop: 6, fontSize: "0.95em" }}>
-                  {t.syllabus && <a href={t.syllabus} target="_blank" rel="noreferrer">[Syllabus]</a>}{" "}
-                  {t.site && <a href={t.site} target="_blank" rel="noreferrer">[Course page]</a>}
-                </p>
-              )}
+      <h1>Teaching</h1>
+      <div className="teaching-list">
+        {TEACHING.map((item, index) => (
+          <div className="teaching-item" key={`${item.course}-${item.term}-${index}`}>
+            <div className="teaching-course">{item.course}</div>
+            <div className="teaching-meta">
+              {item.role}, {item.institution} · {item.term}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </article>
   );
 }
-
-function PaperItem({ title, coauthors, abstract, pdf, slides }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <div style={{ fontWeight: 600 }}>{title}</div>
-      {coauthors && <div style={{ color: "#666" }}>{coauthors}</div>}
-      <p style={{ marginTop: 6, fontSize: "0.95em" }}>
-        {pdf && <><a href={pdf} target="_blank" rel="noreferrer">[Draft]</a>{" "}</>}
-        {slides && <><a href={slides} target="_blank" rel="noreferrer">[Slides]</a>{" "}</>}
-        {abstract && (
-          <a
-            href="#/research"
-            onClick={(e) => {
-              e.preventDefault();
-              setOpen((o) => !o);
-            }}
-          >
-            [Show/Hide Abstract]
-          </a>
-        )}
-      </p>
-      {open && abstract && (
-        <p style={{ maxWidth: "80ch", lineHeight: 1.55 }}>{abstract}</p>
-      )}
-    </div>
-  );
-}
-
